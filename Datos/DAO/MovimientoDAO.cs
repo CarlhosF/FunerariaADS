@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
+using System.Xml;
 namespace Datos.DAO
 {
     public class MovimientoDAO : IDAO.IMovimientoDAO
     {
+        XmlDocument xml = new XmlDocument();
         public bool delete(Movimiento movimiento)
         {
             Boolean Resultado = false;
@@ -38,8 +39,10 @@ namespace Datos.DAO
             MySql.Data.MySqlClient.MySqlConnection mySqlConnection;
             MySql.Data.MySqlClient.MySqlCommand cmd;
             String queryStr;
+            xml.Load("Conexion.xml");
+            String Con = xml.InnerText;
             String connString = "Server=127.0.0.1;Database=funerariabd;Uid=usuario;Pwd=contra;";
-            mySqlConnection = new MySql.Data.MySqlClient.MySqlConnection(connString);
+            mySqlConnection = new MySql.Data.MySqlClient.MySqlConnection(Con);
 
             List<Movimiento> items = new List<Movimiento>();
             mySqlConnection.Open();

@@ -13,6 +13,7 @@ namespace DataManager.CLS
     public class ConexionBD
     {
         XmlDocument xml = new XmlDocument();
+        
         String Server = "Server=127.0.0.1;";
         String BD = "Database=funerariabd;";
         String User = "Uid=usuario;";

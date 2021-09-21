@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Xml;
+
 namespace Datos.DAO
 {
     public class EmpleadoDAO : IDAO.IEmpleadoDAO
     {
+        XmlDocument xml = new XmlDocument();
         public bool delete(Empleados empleado)
         {
             Boolean Resultado = false;

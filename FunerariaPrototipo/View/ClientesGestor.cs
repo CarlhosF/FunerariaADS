@@ -22,7 +22,7 @@ namespace FunerariaPrototipo.View
         public ClientesGestor()
         {
             InitializeComponent();
-            clienteservice = new ClientesServices();
+            
             //clientesviewmodel = new ViewModel.ClienteViewModel();
            
         }
@@ -34,7 +34,8 @@ namespace FunerariaPrototipo.View
         public void CargarDatos() 
         {
             //clientesviewmodel._clientes = (List<Clientes_Modulo.CLS.Clientes>)clienteservice.getAll();
-            dataGridView1.DataSource = CLSConvert.ToDataTable<Clientes_Modulo.CLS.Clientes>((List<Clientes_Modulo.CLS.Clientes>)clienteservice.getAll());
+            ViewModel.ClientesGestorViewModel CGVM = new ViewModel.ClientesGestorViewModel();
+            dataGridView1.DataSource = CGVM.GetAll();
         }
        
     }
